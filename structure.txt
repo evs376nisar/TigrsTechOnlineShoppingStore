@@ -1,0 +1,56 @@
+   user->history{ dipatched(oredered) ; verified(recevid) }
+   admin->history{userdetail(oredered); receied(by user)  }
+   store->static{ statically data run                     }   
+   store->filehanling{at_the_end(bill generate)=odered    }
+   newstore->user{ opennewstore{ addproduct() ; addprice(); } }
+   Press 1 to check new store;{
+    if(new store available)
+    {
+    cout<<" PRess Nth to from the new store";
+    everyuser->{ everyusercan buy products from the new store }
+   
+     }   
+     }
+       for(int i=0;i<1000;i++)
+           {
+          
+          getdata>>productname1;  
+          getdata>>productprice1;   
+          getdata>>productname2;
+          getdata>>productprice2;
+ 	  getdata>>productname3;
+          getdata>>productprice3;
+	  getdata>>productname4;
+	  getdata>>productprice4;	
+                }  
+
+           for(int i=0;i<1000;i++)
+      { 
+         if(productname1.empty()){
+        cout<<"THis product is empty"<<productname1;
+                  }else {
+                         productname1;
+                      cout<<"press 1 for but this procduct"<<endl;
+				cin>>option;
+                            if(optin=='1'){
+				productname1;
+				wallet = wallet - productprince1;
+                                90    = 100     - 90;  
+ 				setdata<<productname1;
+				setdata<<productPrice1;	 	
+  								
+}  
+                            } 
+      }
+    
+
+      PROJECT PARTICIPENT
+      HIBA  = 30% participant  | NABILA  = 30% participant | AMMAD  = 30% participant |NISAR  = 10% participant
+          Registration          | Login & verification      | store management         |  code assemble 
+
+
+
+
+
+
+
