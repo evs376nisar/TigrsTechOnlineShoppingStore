@@ -74,7 +74,7 @@ class user : public data{
        void userregistration();
        void getBill();
        void newsotre();
-     
+       void salesdetail();
 
 };
 void user :: newsotre(){
@@ -82,7 +82,6 @@ void user :: newsotre(){
       ifstream getdata;
       getdata.open("newstore.txt");
       for(int i=0;i<500;i++){
-         // getdata>>obj1data[i].store_name;
          getdata>>obj1data[i].productname;
          getdata>>obj1data[i].ProductQuantity;
          getdata>>obj1data[i].price;
@@ -642,10 +641,92 @@ class admin : public parent
         void view();
         void login();
         void registration();
-          
+        void salesdetail();
+        void useregistrationdetail();
 
 };
+void admin :: useregistrationdetail(){
+   
+    cout << "\t\t\t********************************************************" << endl;
+    cout << "\t\t\t*______________________________________________________*" << endl;
+    cout << "\t\t\t*___________________PAK TIGERS_________________________*" << endl;
+    cout << "\t\t\t************* |      Registered User Infor Portal     |*" << endl;
+    cout << "\t\t\t************* |__________________|____________________|*" << endl;
+    
+   // cout<<" : "<<endl;
+               ifstream getdata;
+               getdata.open("userregistration.txt");
+               int i =1;
+                while(!getdata.eof())
+                  {
+                  getdata>>objdata->username;
+                  getdata>>objdata->userlastname;
+                  getdata>>objdata->useremail;
+                  getdata>>objdata->userpassword;
+                  getdata>>objdata->status;
+                  
+                  cout << "\t\t\t*______________________________________________________*" << endl;
+                  cout << "\t\t\t************* |   ENTRY          |  "<<i++<<"                            " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                  cout << "\t\t\t************* |   NAME           |  "<<objdata->username<<"            " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                  cout << "\t\t\t************* |   LAST NAME      |  "<<objdata->userlastname<<"        " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                  cout << "\t\t\t************* |   EMAIL          |  "<<objdata->useremail<<"           " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                  cout << "\t\t\t************* |   LAST NAME      |  "<<objdata->userpassword<<"        " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                  cout << "\t\t\t************* |   LAST NAME      |  "<<objdata->status<<"              " << endl;
+                  cout << "\t\t\t************* |__________________|____________________|*" << endl;
+                 
+                  
+                  
+                  }
+                  getdata.close();
+}
+void admin :: salesdetail(){
+   system("cls");
+   data obj[1000];
+	   ifstream getdata;
+      getdata.open("storedata.txt",ios::in|ios::out);
+      for(int i=0;i<100;i++){
+         getdata>>obj[i].name;
+         getdata>>obj[i].item;
+         // getdata>>obj[i].price;
+      }
 
+    cout << "\t\t\t********************************************************" << endl;
+    cout << "\t\t\t*______________________________________________________*" << endl;
+    cout << "\t\t\t*___________________DATA   DETAIL______________________*" << endl;
+    bool isavailable = false;
+    for(int i=0;i<1;i++){
+        if(obj[i].item.empty()){
+            cout << "\t\t\t************* |      NAME    | "<<"NO MORE AVAILABLE"<<"           |*" << endl;
+            exit(1);
+      
+         }else{
+    cout << "\t\t\t************* |      NAME        | "<<obj[i].name<<"           |*" << endl;
+    
+    }
+
+    }
+      for(int i=0;i<20;i++){
+         if(obj[i].item.empty()){
+
+         cout << "\t\t\t************* |      PRODUCT        | "<<"NO MORE AVAILABLE"<<"           |*" << endl;
+         exit(1);
+         }else{
+            
+            cout << "\t\t\t************* |      PRODUCT     | "<<obj[i].item<<"           |*" << endl;
+            isavailable = true;
+   
+         }
+         
+         
+      }
+      
+      getdata.close();
+}
 void admin::registration(){   
    system("cls");
    regis:
@@ -679,10 +760,7 @@ void admin::registration(){
 }
 void admin :: login(){
    system("cls");
-   cout << "\t\t\t*************************************************************************" << endl;
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-    cout<<"\t\t\t*\tWelcome To Login Portal :"<<endl;
-    fstream getdata;
+   fstream getdata;
        	getdata.open("admin.txt");
        	for(int i=0;i<100;i++){
              getdata>>objdata[i].username;
@@ -691,50 +769,51 @@ void admin :: login(){
              getdata>>objdata[i].userpassword;
           }
           string email,password;
-          cout<<"Enter Email for Login : "<<endl;
-          cin>>email;
-          cout<<"Enter Password for Login : "<<endl;
-          cin>>password;
+    cout << "\t\t\t*________________________________________________________*" << endl;
+    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+    cout << "\t\t\t************* |                                         |*" << endl;
+    cout << "\t\t\t************* |        WELCOME TO LOGIN PORTAL          |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         ENTER EMAIL FOR LOGIN           |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | EMAIL : ";cin>>email;   
+	 cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         ENTER PASSWORD FOR LOGIN        |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | PASSWORD : ";cin>>password;  
      bool islogin = false;
     for(int i = 0 ;i<100;i++)
     {
          if(email==objdata[i].useremail && password == objdata[i].userpassword){
             system("cls");
-            cout<<"\t\t\t*\tWelCome Mr/Ms Admin : " << objdata[i].username<<" "<<objdata[i].userlastname<<endl;
-            cout<<"\t\t\t*\tWhat Do You Want To Do"<<endl;
-            cout<<"\t\t\t*\tPress 1 For View sale detail "<<endl;
-            cout<<"\t\t\t*\tPress 2 Registered user detail "<<endl;
-            cout<<"\t\t\t*\tPress 3 For Edit You information"<<endl;
-            cout<<"\t\t\t*\tPress 4 For Appoved ID"<<endl;
-            cout<<"\t\t\t*\tPress 5 To Blocke ID"<<endl;
-            cout<<"\t\t\t*\tPress 6 To UnBlocke ID"<<endl;
+            cout << "\t\t\t*________________________________________________________*" << endl;
+            // cout<<  "\t\t\t*WelCome Mr/Ms Admin : 
+            cout << "\t\t\t************* |                                         |*" << endl;
+            cout << "\t\t\t************* |         WELCOME "<< objdata[i].username<<" "<<objdata[i].userlastname<<"             |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |        What Do You Want To Do ?         |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 1 For View sale detail         |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 2 Registered user detail       |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 3 For Edit You information     |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* |    Press 4 For Appoved ID               |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* |    Press 5 To Blocke ID                 |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* |    Press 6 To UnBlocke ID               |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* | RESPONSE : ";cin>>obj.option;  
      
             islogin =true;
-            cin>>obj.option;
+            
             if(obj.option=='1'){
-               cout<<"Sale Detail Portal : ";
+               salesdetail();
+
             }else if(obj.option=='2'){
-               cout<<"Registered User Infor Portal : "<<endl;
-               ifstream getdata;
-               getdata.open("userregistration.txt");
-               int i =1;
-                while(!getdata.eof())
-                  {
-                  getdata>>objdata->username;
-                  getdata>>objdata->userlastname;
-                  getdata>>objdata->useremail;
-                  getdata>>objdata->userpassword;
-                  getdata>>objdata->status;
-                  cout<<"Entry # "<<i++<<endl;
-                  cout<<"NAME  : "<<objdata->username<<endl;
-                  cout<<"LAST NAME  : "<<objdata->userlastname<<endl;
-                  cout<<"EMAIL  : "<<objdata->useremail<<endl;
-                  cout<<"PASSWORD  : "<<objdata->userpassword<<endl;
-                  cout<<"ACOOUNT STATUS  : "<<objdata->status<<endl;
-                  
-                  
-                  }
-                  getdata.close();
+               useregistrationdetail();
 
             }else if(obj.option=='3'){
                cout<<"Edit Portal"<<endl;
@@ -999,41 +1078,56 @@ void admin :: view()
     cout << "\t\t\t********************************************************" << endl;
     cout << "\t\t\t*______________________________________________________*" << endl;
     cout << "\t\t\t*___________________TEAM MEMEBRS_______________________*" << endl;
-    cout << "\t\t\t************* |      NAME        |     ROLL NO     |   *" << endl;
-    cout << "\t\t\t************* |__________________|_________________|   *" << endl;
-    cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-S20-024 } |   *" << endl;
-    cout << "\t\t\t************* |__________________|_________________|   *" << endl;
-    cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-024 } |   *" << endl;
-    cout << "\t\t\t************* |__________________|________________ |   *" << endl;
-    cout << "\t\t\t************* |AMMAD ANWAR       |{ BSEM-S20-024 } |   *" << endl;  
-	 cout << "\t\t\t************* |__________________|________________ |   *" << endl;
-    cout << "\t\t\t************* |HAFIZ NISAR AKRAM |  { BSEM-S20-005 }   *" << endl;
-    cout << "\t\t\t************* |__________________|________________ |   *" << endl;
+    cout << "\t\t\t************* |      NAME        |     ROLL NO        |*" << endl;
+    cout << "\t\t\t************* |__________________|____________________|*" << endl;
+    cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-S20-024 }    |*" << endl;
+    cout << "\t\t\t************* |__________________|____________________|*" << endl;
+    cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-024 }    |*" << endl;
+    cout << "\t\t\t************* |__________________|____________________|*" << endl;
+    cout << "\t\t\t************* |AMMAD ANWAR       |{ BSEM-S20-024 }    |*" << endl;  
+	 cout << "\t\t\t************* |__________________|____________________|*" << endl;
+    cout << "\t\t\t************* |HAFIZ NISAR AKRAM |{ BSEM-S20-005 }    |*" << endl;
+    cout << "\t\t\t************* |__________________|____________________|*" << endl;
     system("pause");
 	   system("cls");
-    cout << "\t\t\t*******************************************************************" << endl;
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-    cout << "\t\t\t*\t\t\t Welcome Tiger's Tech \t\t\t\t*" << endl;
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-    cout << "\t\t\t*\t\t\t Identify Yourself  \t\t\t\t*" << endl;
-    cout << "\t\t\t*\tPres 1 for Admin        \t\t\t\t*" << endl;
-    cout << "\t\t\t*\tPres 2 for User         \t\t\t\t*" << endl;
-    cout << "\t\t\t*\t";cin>>obj.res;
+      cout << "\t\t\t********************************************************" << endl;
+    cout << "\t\t\t*________________________________________________________*" << endl;
+    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+    cout << "\t\t\t************* |                                         |*" << endl;
+    cout << "\t\t\t************* |        Identify Yourself                |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         PRESS 1 FOR ADMIN               |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         PRESS 2 FOR USER                |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | RESPONSE : ";cin>>obj.res;cout<<"       |*" << endl;  
+	 cout << "\t\t\t************* |__________________|______________________|*" << endl;
+    cout << "\t\t\t**********************************************************" << endl;
     if(obj.res==1){
        system("cls");
-       cout << "\t\t\t****************************************************************" << endl;
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-       cout<<"\t\t\t*\tWELCOME TO ADMIN PORTAL"<<endl;
-       cout<<"\t\t\t*\tPress 1 for login "<<endl;
-       cout<<"\t\t\t*\tPress 2 for Registration "<<endl;
-       cout << "\t\t\t*\t";cin>>obj.res;
+    cout << "\t\t\t*________________________________________________________*" << endl;
+    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+    cout << "\t\t\t************* |                                         |*" << endl;
+    cout << "\t\t\t************* |        WELCOME TO ADMIN PORTAL          |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         PRESS 1 FOR LOGIN               |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         PRESS 2 FOR REGISTRATION        |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | RESPONSE : ";cin>>obj.res;cout<<"       |*" << endl;  
+	 cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t**********************************************************" << endl;
+    
+    
        if(obj.res==1){
            system("cls");
            cout << "\t\t\t************************************************************" << endl;
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-          cout<<"\t\t\t*\tWELCOME TO LOGIN PORTAL"<<endl;
-          login();
+    cout << "\t\t\t*************  _________________________________________ *" << endl;
+    cout << "\t\t\t************* |                                         |*" << endl;
+    cout << "\t\t\t************* |        WELCOME TO ADMIN PORTAL          |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    login();
        }else if(obj.res==2){
            system("cls");
           registration();
