@@ -996,17 +996,19 @@ void admin :: login(){
 }
 void admin :: view()
 {   
-    cout << "\t\t\t*******************************************************************" << endl;
-    cout << "\t\t\t__________________________________________________________________*" << endl;
-    cout << "\t\t\t_____________________________TEAM MEMEBRS_________________________*" << endl;
-    cout << "\t\t\t******************                                                *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**  HIBA LIAQAT         { BSEM-S20-024 }          *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**                                                *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**  NABILA MUAZ         { BSEM-S20-024 }          *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**                          			             *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**  AMMAD ANWAR         { BSEM-S20-024 }          *" << endl;  
-	 cout << "\t\t\t\t\t\t\t\t\t\t\t**                          			             *" << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t**  HAFIZ NISAR AKRAM   { BSEM-S20-005 }          *" << endl;
+    cout << "\t\t\t********************************************************" << endl;
+    cout << "\t\t\t*______________________________________________________*" << endl;
+    cout << "\t\t\t*___________________TEAM MEMEBRS_______________________*" << endl;
+    cout << "\t\t\t************* |      NAME        |     ROLL NO     |   *" << endl;
+    cout << "\t\t\t************* |__________________|_________________|   *" << endl;
+    cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-S20-024 } |   *" << endl;
+    cout << "\t\t\t************* |__________________|_________________|   *" << endl;
+    cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-024 } |   *" << endl;
+    cout << "\t\t\t************* |__________________|________________ |   *" << endl;
+    cout << "\t\t\t************* |AMMAD ANWAR       |{ BSEM-S20-024 } |   *" << endl;  
+	 cout << "\t\t\t************* |__________________|________________ |   *" << endl;
+    cout << "\t\t\t************* |HAFIZ NISAR AKRAM |  { BSEM-S20-005 }   *" << endl;
+    cout << "\t\t\t************* |__________________|________________ |   *" << endl;
     system("pause");
 	   system("cls");
     cout << "\t\t\t*******************************************************************" << endl;
