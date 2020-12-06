@@ -44,16 +44,21 @@ class data {
     double s8=0;
     double s9=0;
     double s10=0;
-    double redminote8=0;
-    double redminote9=0;
-    double redminote10=0;
     int counter=0;
     int price;
     string item;
     string date;
     int year,month,day;
     int nthamount;
+    int ProductQuantity=0;
     int finalres;
+    int iphoneQuantity8s = 4 ;
+    int iphoneQuantityxmax = 4 ;
+    int iphoneQuantity12 = 4 ;
+    int samsungQuantitys8 = 4 ;
+    int samsungQuantitys9 = 4 ;
+    int samsungQuantitys10 = 4 ;
+    string store_name,productname;
     
 };
 class user : public data{
@@ -68,79 +73,56 @@ class user : public data{
       
        void userregistration();
        void getBill();
+       void newsotre();
      
 
 };
+void user :: newsotre(){
+      
+      ifstream getdata;
+      getdata.open("newstore.txt");
+      for(int i=0;i<500;i++){
+         // getdata>>obj1data[i].store_name;
+         getdata>>obj1data[i].productname;
+         getdata>>obj1data[i].ProductQuantity;
+         getdata>>obj1data[i].price;
+      }
+      
+       
+      for(int i=0;i<500;i++){
+         if(obj1data[i].productname.empty() ){
+
+         }else{
+            //   cout<<" sotre : "<<obj1data[i].store_name;
+         cout<<" PRoduct Name "<<obj1data[i].productname<<endl;
+         cout<<" Quantity "<<obj1data[i].ProductQuantity<<endl;
+         cout<<" ptice "<<obj1data[i].price<<endl;
+      }
+      }
+}
 void user :: getBill(){
-	cout<<"Here is you bill "<<endl;
-	ifstream getdata;
-	getdata.open("storedata.txt");
-   // while (!getdata.eof()){
-   // //    getdata>>obj1data[i].name;
-	// //   getdata>>obj1data[i].date;
-	//   getdata>>obj1data[i].item;
-	//   getdata>>obj1data[i].price;
-   //       // cout<<" ith #" << i<<endl;
-         
-	// 		// cout<<"\n NAme            : "<< obj1data[i].name<<endl;
-	// 		// cout<<"\nDate             : "<< obj1data[i].date<<endl;
-	// 		cout<<"\nYou have Bought  : "<< obj1data[i].item<<endl;
-	// 		cout<<"\nAND PRice IS     : " << obj1data[i].price<<endl;
-   // }
-	for(int i=0;i<50;i++)
-	{
-	//    getdata>>obj1data[i].name;
-	  getdata>>obj1data[i].year;
-     getdata>>obj1data[i].month;
-     getdata>>obj1data[i].day;
-	  getdata>>obj1data[i].item;
-	  getdata>>obj1data[i].price;
-         // cout<<" ith #" << i<<endl;
-         
-			// cout<<"\n NAme            : "<< obj1data[i].name<<endl;
-			cout<<"\nYear             : "<< obj1data[i].year<<endl;
-         cout<<"\nmonth             : "<< obj1data[i].month<<endl;
-			cout<<"\nDay             : "<< obj1data[i].day<<endl;
-			cout<<"\nYou have Bought  : "<< obj1data[i].item<<endl;
-			cout<<"\nAND PRice IS     : " << obj1data[i].price<<endl;  	
-		
-	} 
-	//   cout<<"NAME :"<<obj1data[i].name<<endl;
-	//   cout<<"DATE : "<<obj1data[i].date<<endl;
-		cout<<"Enter date 0000-00-00 "<<endl;
-		cin>>obj1.date; 
-		cout<<"\nname you want to check you bill "<<endl;
-		cin>>obj1.name;
-		bool product=false;
-	// for(int i=0;i<50;i++){
-		
-	  
-	// 	if(obj1data[i].name== obj1.name &&  obj1data[i].date == obj1.date ){
-		
-	//   	cout<<"\nHere is your Bill MR "<< obj1data[i].name<<endl;
-	   
-	//   	for(int i=0;i<20;i++){
-	//   	if(obj1data[i].item.empty()){
-	  		
-	// 	  }else{
-		 
-	// 		cout<<"\nYou have Bought  : "<< obj1data[i].item<<endl;
-	// 		cout<<"\nAND PRice IS     : " << obj1data[i].price<<endl;
-	// 	}
-	// 	}
-	// 		product=true;
-	// 	}else{
-	// 		product=false;
-	// 	}
-	// }
-	if(product==true){
-		
-		cout<<"No PRoduct Found"<<endl;
-//	    break;
-	}else if(product==false){
-		cout<<"Not Found";
-	}
-   getdata.close(); 
+   data obj[1000];
+	   ifstream getdata;
+      getdata.open("storedata.txt");
+      for(int i=0;i<50;i++){
+         getdata>>obj[i].name;
+         getdata>>obj[i].item;
+         getdata>>obj[i].price;
+           cout<<"Name "<<obj[i].name<<endl;
+        cout<<"Itm Name "<<obj[i].item<<endl;
+         cout<<" Item PRice "<<obj[i].price<<endl;
+      }
+      for(int i=0;i<50;i++){
+         string name;
+         cout<<"Enter name of account holder"<<endl;
+         cin>>name;
+         if(name==obj[i].name){
+         cout<<"Name "<<obj[i].name;
+        cout<<"Itm Name "<<obj[i].item;
+         cout<<" Item PRice "<<obj[i].price;
+         }else{
+            cout<<"NO dound";         }
+      }
 }
 void user :: userlogin(){
 	fstream getdata;
@@ -245,7 +227,9 @@ void user :: Cart(){
                      cout<<"What Do You Want To Do "<<endl;
                      cout<<"Press 1 for Shopping "<<endl;
                      cout<<"Press 2 For Open Your Own Store "<<endl;
+                     
                      cout<<"Press 3 to check you account "<<endl;
+                     cout<<"Press 4 to buy from other store"<<endl;
                      cin>>option;
                      if(option=='1'){
                      	
@@ -255,10 +239,10 @@ void user :: Cart(){
                         cin>>wallet;
                         ofstream setdata;
 	                 setdata.open("storedata.txt",ios::app);
-	                 cout<<"Enter Date In This Formate 0000-00-00 "<<endl;
-                     cin>>date;
+	                 cout<<"Enter The name "<<endl;
+                     cin>>objdata[i].username;
                      setdata<<objdata[i].username<<endl;
-                     setdata<<date<<endl;
+                     // setdata<<date<<endl;
                      // setdata.close();
 						system("cls");
                         while(wallet >=0){
@@ -273,7 +257,7 @@ void user :: Cart(){
                              
                            break;
 							   }else{
-							   
+							      product:
                            cout<<"You Have Added "<<wallet<<" In You wallet"<<endl;
                            cout<<"Here is Your Inventory = "<<cart<<endl;
                            cout<<"What Do you want to buy "<<endl;
@@ -287,9 +271,9 @@ void user :: Cart(){
                                cout<<"Press 1 to buy Iphone "<<endl;
                                cin>>option;
                                if(option=='1'){
-                                cout<<"Press 1 for iphone 8s 100$"<<endl;
-                                cout<<"Press 2 for iphone xMax 1000$"<<endl;
-                                cout<<"Press 3 for iphone 12 1400$"<<endl;
+                                cout<<"Press 1 for iphone 8s 100$   Available Quantity "<<iphoneQuantity8s<<endl;
+                                cout<<"Press 2 for iphone xMax 1000$  Available Quantity "<<iphoneQuantityxmax<<endl;
+                                cout<<"Press 3 for iphone 12 1400$  Available Quantity "<<iphoneQuantity12<<endl;
                                 cin>>option;
                                  switch (option)
                                  {
@@ -316,20 +300,27 @@ void user :: Cart(){
                                        }
                                          else 
                                        {
-                                          
-                                          cout<<"Enter No of product you want"<<endl;
-                                          cin>>nthamount;
-                                       iphone8s++;
+                                          if(iphoneQuantity8s==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
+
+                                             iphone8s++;
                                        cart = iphone8s;
+                                       cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
                                        finalres = 100 * nthamount; 
-                                       cout<<" amount "<<finalres;
                                        wallet = wallet - finalres;
-                                       cout<<" wallet "<<wallet<<endl;
-                                       // system("pause");
+                                       iphoneQuantity8s = iphoneQuantity8s-nthamount;
+                                        cout<<"PRoduct remaing "<<iphoneQuantity8s;
                                        item="iphone8s";
                                        price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
+                                          }
+                                          
+                                       
                                        }
                                        
                                     }
@@ -355,15 +346,25 @@ void user :: Cart(){
 										}
 										
                                        }else {
+                                          if(iphoneQuantityxmax==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
                                        iphoneXmax++;
                                        cart = iphoneXmax;
-                                       wallet = wallet - 1000;
+                                       
+                                       cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
+                                        iphoneQuantityxmax = iphoneQuantityxmax-nthamount;
+                                       finalres = 1000 * nthamount; 
+                                       wallet = wallet - finalres;
                                        item="iphoneXmax";
-                                       price=1000;
+                                       price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
 									   }
-                                       
+                                       }
                                     }
                                     break;
                                  case'3':
@@ -387,13 +388,23 @@ void user :: Cart(){
 										}
 										
                                        }else {
+                                          if(iphoneQuantity12==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
                                        iphone12++;
                                        cart = iphone12;
-                                       wallet = wallet - 1400;
+                                      cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
+                                       finalres = 1400 * nthamount; 
+                                        iphoneQuantity12 = iphoneQuantity12-nthamount;
+                                       wallet = wallet - finalres;
                                        item="iphone12";
-                                       price=1200;
+                                       price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
+                                       }
                                        }
                                  }
                                  
@@ -404,9 +415,9 @@ void user :: Cart(){
                                	cout<<"You have entered InVaLid KEy"<<endl;
 							   }
                            }else if(option=='2'){
-                                cout<<"Press 1 for samsung S8 400$"<<endl;
-                                cout<<"Press 2 for samsung S9 900$"<<endl;
-                                cout<<"Press 3 for Samsung S10 1000$"<<endl;
+                                cout<<"Press 1 for samsung S8 400$   Available Quantity "<<samsungQuantitys8<<endl;
+                                cout<<"Press 2 for samsung S9 900$  Available Quantity "<<samsungQuantitys9<<endl;
+                                cout<<"Press 3 for Samsung S10 1000$  Available Quantity "<<samsungQuantitys10<<endl;
                                 cin>>option;
                                 
                                  switch (option)
@@ -432,13 +443,23 @@ void user :: Cart(){
 										}
 										
                                        }else {
+                                          if(samsungQuantitys8==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
                                        s8++;
                                        cart = s8;
-                                       wallet = wallet - 400;
+                                       cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
+                                       finalres = 400 * nthamount; 
+                                       wallet = wallet - finalres;
+                                         samsungQuantitys8 = samsungQuantitys8-nthamount;
                                        item="SamsungS8";
-                                       price=400;
+                                       price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
+                                          }
                                        }
                                     }
                                     break;
@@ -463,13 +484,23 @@ void user :: Cart(){
 										}
 										
                                        }else {
+                                          if(samsungQuantitys9==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
                                        s9++;
                                        cart = s9;
-                                       wallet = wallet - 900;
+                                       cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
+                                       finalres = 900 * nthamount; 
+                                       wallet = wallet - finalres;
+                                        samsungQuantitys9 = samsungQuantitys9-nthamount;
                                        item="samsungS9";
-                                       price=900;
+                                       price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
+                                       }
                                        }
                                     }
                                     break;
@@ -494,13 +525,24 @@ void user :: Cart(){
 										}
 										
                                        }else {
+                                          if(samsungQuantitys10==0){
+                                             cout<<"Product is out Of stock "<<endl;
+                                            goto product;
+                                          }
+                                          else{
                                        s10++;
                                        cart = s10;
-                                       wallet = wallet - 1000;
+                                       cout<<"Enter No of product you want"<<endl;
+                                       cin>>nthamount;
+                                       finalres = 1000 * nthamount; 
+                                       wallet = wallet - finalres;
+                                       
+                                        samsungQuantitys10 = samsungQuantitys10-nthamount;
                                        item="SamsungS10";
-                                       price=1000;
+                                       price=finalres;
                                        setdata<<item<<endl;
                                        setdata<<price<<endl;
+                                          }
                                        }
                                     }
                                     break;
@@ -534,15 +576,40 @@ void user :: Cart(){
                      }
                      }
                      else if(option=='2'){
+
                         cout<<"Welcome To Pak Tigers Online Plate Form "<<endl;
-                        string store_name;
+                        
+                        int nthproduct,price;
+                         ofstream setdata;
+                         setdata.open("newstore,.txt",ios::app);
                         cout<<"Please Enter Your Store Name "<<endl;
                         cin>>store_name;
+                        cout<<"Enter The ammount of product You want to added"<<endl;
+                        cin>>nthproduct;
+                        setdata<<store_name<<endl;
+                        for(int i=0;i<nthproduct;i++){
+                           cout<<" Enter Your # "<<i<<" Product name"<<endl;
+                           cin>>productname;
+                           cout<<"Enter Your # " <<i<< " Product price";
+                           cin>>price;
+                           cout<<"Enter the Product Quantity "<<endl;
+                           cin>>ProductQuantity;
+                           setdata<<productname<<endl;
+                           setdata<<ProductQuantity<<endl;
+                           setdata<<price<<endl;
+
+                              
+                        }
+                        setdata.close();
                         
-      
+
                      }else if(option=='3'){
                      	getBill();
 					 }
+                else if(option=='4'){
+                   cout<< " New Storee "<<endl;
+                   newsotre();
+                }
 }
 class admin : public parent 
 {
@@ -929,8 +996,20 @@ void admin :: login(){
 }
 void admin :: view()
 {   
-       system("cls");
-    cout << "\t\t\t*************************************************************************" << endl;
+    cout << "\t\t\t*******************************************************************" << endl;
+    cout << "\t\t\t__________________________________________________________________*" << endl;
+    cout << "\t\t\t_____________________________TEAM MEMEBRS_________________________*" << endl;
+    cout << "\t\t\t******************                                                *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**  HIBA LIAQAT         { BSEM-S20-024 }          *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**                                                *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**  NABILA MUAZ         { BSEM-S20-024 }          *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**                          			             *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**  AMMAD ANWAR         { BSEM-S20-024 }          *" << endl;  
+	 cout << "\t\t\t\t\t\t\t\t\t\t\t**                          			             *" << endl;
+    cout << "\t\t\t\t\t\t\t\t\t\t\t**  HAFIZ NISAR AKRAM   { BSEM-S20-005 }          *" << endl;
+    system("pause");
+	   system("cls");
+    cout << "\t\t\t*******************************************************************" << endl;
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
     cout << "\t\t\t*\t\t\t Welcome Tiger's Tech \t\t\t\t*" << endl;
@@ -941,7 +1020,7 @@ void admin :: view()
     cout << "\t\t\t*\t";cin>>obj.res;
     if(obj.res==1){
        system("cls");
-       cout << "\t\t\t*************************************************************************" << endl;
+       cout << "\t\t\t****************************************************************" << endl;
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
        cout<<"\t\t\t*\tWELCOME TO ADMIN PORTAL"<<endl;
        cout<<"\t\t\t*\tPress 1 for login "<<endl;
@@ -949,7 +1028,7 @@ void admin :: view()
        cout << "\t\t\t*\t";cin>>obj.res;
        if(obj.res==1){
            system("cls");
-           cout << "\t\t\t*************************************************************************" << endl;
+           cout << "\t\t\t************************************************************" << endl;
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
           cout<<"\t\t\t*\tWELCOME TO LOGIN PORTAL"<<endl;
           login();
@@ -985,7 +1064,7 @@ void admin :: view()
          
          
     }else {
-       cout<<"INvalid entity";
+       cout<<"\t\t\t*\tINvalid entity";
     }
     cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
     cout << "\t\t\t*************************************************************************" << endl;
@@ -999,4 +1078,3 @@ int main() {
  
    return 0;
 }
-

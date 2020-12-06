@@ -1,0 +1,6 @@
+apple
+2
+200
+samsung
+5
+100
