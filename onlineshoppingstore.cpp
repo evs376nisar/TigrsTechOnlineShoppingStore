@@ -29,8 +29,9 @@ class logindata{
 
 class data {
    public:
-   int res;
-    int id ,i=0,j,k,l;
+    int res;
+    int id ,i=0;
+	int j,k,l;
     char option;
     string name;
     string lastname;
@@ -48,7 +49,6 @@ class data {
     int price;
     string item;
     string date;
-
     int year,month,day;
     int nthamount;
     int ProductQuantity=0;
@@ -82,24 +82,91 @@ void user :: newsotre(){
       
       ifstream getdata;
       getdata.open("newstore.txt");
-      for(int i=0;i<500;i++){
+      for(int i=1;i<500;i++){
          getdata>>obj1data[i].productname;
          getdata>>obj1data[i].ProductQuantity;
          getdata>>obj1data[i].price;
-      }
+         if(obj1data[i].productname.empty()){
+		 }else{
+		 cout<<"\t\t\t***** |________________|*"<<endl;
+		 cout<<"\t\t\t***** | "<<i<<" - "<<obj1data[i].productname<<"         ";
+		 cout<<"  $ "<<obj1data[i].price<<" AVAILAIBLE AMOUNT "<<obj1data[i].ProductQuantity<<" | "<<endl;
+		 cout<<"\t\t\t***** |________________|*"<<endl;
+		 }
+	  }
+	  int respnose ,cart=0,P_buy,newwallet,extract;
+	  bool isbuy=false;
+	  cout<<"Enter the Ammount In Your wallet "<<endl;
+	  cin>>wallet;
+	  back:
+      buy:
+	  while(wallet >= 0){
+	  	
+	  if(wallet<=100){
+		  cout<<"You Are Out OF MOnNey"<<endl; 
+		  cout<<"Press 1 for Add more money in wallet or press 5 to check out"<<endl;
+		  cin>>respnose;
+		  if(respnose==1){
+		  	cout<<"ENTER AMMOUNT "<<endl;
+		  	cin>>newwallet;
+		   wallet = wallet + newwallet; 
+		   goto back;
+		  }else if(respnose==5){
+			cout<<"BYE BYE ! HAVE NICE DAY "<<endl;
+			exit(1);
+		  }
+		  
+	  	}else{
+		  }	
+	  cout<<"How Many Product Do you want to buy";
+	  cin>>P_buy;
+	  cout<<"Enter the PRoduct Index to Buy"<<endl;
+	  cin>>respnose;
+	  cout<<"WAllet "<<wallet<<endl;
+	  
+	  for(int i=1;i<10;i++){
+        
+	  ProductQuantity = obj1data[i].ProductQuantity;
+	  
+	    if(respnose==i){
+	    	cart = cart + P_buy; 
+	  		cout<<"Product Quantity "<<ProductQuantity<<endl;
+	  		if(ProductQuantity==0){
+	  			cout<<"PRODUCT IS OUT OF STOCK "<<endl;
+			  goto back;
+			  }else{
+	
+			cout<<"You Have Purchased "<<obj1data[i].productname<<endl;
+            
+	  		obj1data[i].ProductQuantity =obj1data[i].ProductQuantity - P_buy ; 
+	  		 
+	  		wallet = wallet - (obj1data[i].price * P_buy);
+	  		extract   =obj1data[i].price * P_buy;
+	  		cout<<"WAllet "<<wallet<<endl;
+	  	    cout<<"You have "<<cart<<" IN inventory "<<endl;
+	  		cout<<"Do YOu want to but more"<<endl;
+	  		cout<<"OR PRESS 5 To Check Out !"<<endl;
+	  		cin>>res;
+	  		if(res==1){
+	  			goto buy;
+			  }else if(res ==5){
+			  	cout<<"BYE BYE ! HAVE NICE DAY "<<endl;
+			  	exit(1);
+			  }
+			  		  }
+
+	  		
+		  }else{
+		  	
+		  }
+		  }
+		  
+		  
+	  }
+	  
       
        
-      for(int i=0;i<500;i++){
-         if(obj1data[i].productname.empty() ){
-
-         }else{
-            //   cout<<" sotre : "<<obj1data[i].store_name;
-         cout<<" PRoduct Name "<<obj1data[i].productname<<endl;
-         cout<<" Quantity "<<obj1data[i].ProductQuantity<<endl;
-         cout<<" ptice "<<obj1data[i].price<<endl;
-      }
-      }
-}
+     }
 void user :: getBill(){
    data obj[1000];
 	   ifstream getdata;
@@ -193,42 +260,72 @@ void user :: userlogin(){
          
          
          if(islogin==false){
-         cout<<"InValid Entry "<<endl;
+                  cout << "\t\t\t*_____________________________________*" << endl;
+                  cout << "\t\t\t************* |                       |*" << endl;
+                  cout << "\t\t\t************* | InValid Entry    :(   |*" << endl;
+                  cout << "\t\t\t************* |_______________________|*" << endl;
+         // cout<<"InValid Entry "<<endl;
             goto login;
           
          }else if( isblock==false){
-               cout<<"You are blocked By the Admin  :("<<endl;
+            cout << "\t\t\t*_________________________________________________________*" << endl;
+            cout << "\t\t\t************* |                                    |*" << endl;
+            cout << "\t\t\t************* | You are blocked By the Admin  :(   |*" << endl;
+            cout << "\t\t\t************* |____________________________________|*" << endl;
+               // cout<<"You are blocked By the Admin  :("<<endl;
          }
          else if(isapproved==false){
-            cout<<"NOt Approved By The Amdin";
+            cout << "\t\t\t*________________________________________________________*" << endl;
+            cout << "\t\t\t************* |                                         |*" << endl;
+            cout << "\t\t\t************* | You are NOt Approved By The Amdin  :(   |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
          }
          getdata.close();
 }
 void user :: userregistration(){ 
 
 	    reg:
-       cout<<"Welcome To registration :  "<<endl;
+       system("cls");
+        cout << "\t\t\t*************  _________________________________________ *" << endl;  
+        cout << "\t\t\t************* |    Welcome To registration              |*" << endl;
+        cout << "\t\t\t************* |_________________________________________|*" << endl;
        ofstream setdata;
        setdata.open("userregistration.txt",ios::app);
-       cout<<"Enter Your First Name "<<endl;
-       cin>>loginobj.username;
-       cout<<"Enter Your Last  Name "<<endl;
-       cin>>loginobj.userlastname;
-       cout<<"Enter Your Email  Name "<<endl;
-       cin>>loginobj.useremail;
-       cout<<"Enter Your Password Name "<<endl;
-       cin>>loginobj.userpassword;
-       cout<<"Enter RetypePassword "<<endl;
-       cin>>loginobj.retypepassowrd;
+       cout << "\t\t\t*************  _________________________________________ *" << endl;
+       cout << "\t\t\t************* |        Enter Your First Name            |*" << endl;
+       cout << "\t\t\t************* |_________________________________________|*" << endl;
+       cout << "\t\t\t************* | FIRST NAME : ";cin>>loginobj.username; 
+       cout << "\t\t\t*************  _________________________________________ *" << endl;
+       cout << "\t\t\t************* |       Enter Your Last  Name             |*" << endl;
+       cout << "\t\t\t************* |_________________________________________|*" << endl;
+       cout << "\t\t\t************* | LAST NAME : ";cin>>loginobj.userlastname;
+       cout << "\t\t\t*************  _________________________________________ *" << endl;
+       cout << "\t\t\t************* |       Enter Your Email  Name            |*" << endl;
+       cout << "\t\t\t************* |_________________________________________|*" << endl;
+       cout << "\t\t\t************* | EMAIL     : ";cin>>loginobj.useremail;
+       cout << "\t\t\t*************  _________________________________________ *" << endl;
+       cout << "\t\t\t************* |     Enter Your Password Name            |*" << endl;
+       cout << "\t\t\t************* |_________________________________________|*" << endl;
+       cout << "\t\t\t************* | PASSWORD  : ";cin>>loginobj.userpassword;
+       cout << "\t\t\t*************  _________________________________________ *" << endl;
+       cout << "\t\t\t************* |    Enter RetypePassword                 |*" << endl;
+       cout << "\t\t\t************* |_________________________________________|*" << endl;
+       cout << "\t\t\t************* | RETYPE PASSWoRD : ";cin>>loginobj.retypepassowrd;
+       
        if(loginobj.retypepassowrd==loginobj.userpassword){
              setdata<<loginobj.username<<endl;
              setdata<<loginobj.userlastname<<endl;
              setdata<<loginobj.useremail<<endl;
              setdata<<loginobj.userpassword<<endl;
              setdata<<"pendding"<<endl;
-             cout<<"Your successfully registerd and wait for the admin approval";
+             cout << "\t\t\t*************  ________________________________________________________________ *" << endl;
+             cout << "\t\t\t************* |    Your successfully registerd and wait for the admin approval |*" << endl;
+             cout << "\t\t\t************* |________________________________________________________________|*" << endl;
+            //  cout<<"Your successfully registerd and wait for the admin approval";
        }else {
-          cout<<"Your Retype Password does Not ! Try Again  :( "<<endl;
+          cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+          cout << "\t\t\t************* |    Your Retype Password does Not ! Try Again  :(       |*" << endl;
+          cout << "\t\t\t************* |________________________________________________________|*" << endl;
           goto reg;
        }
        
@@ -236,6 +333,7 @@ void user :: userregistration(){
 void user :: Cart(){
 	               //   ofstream setdata;
 	               //   setdata.open("storedata.txt",ios::app);
+                  system("cls");
 	         cout << "\t\t\t*************  _________________________________________*" << endl;
             cout << "\t\t\t************* |        What Do You Want To Do ?         |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;
@@ -254,15 +352,17 @@ void user :: Cart(){
                      if(option=='1'){
                      	
                            double cart=0;  
+                           system("cls");
                         cout << "\t\t\t*************  _________________________________________________*" << endl;     
                         cout << "\t\t\t************* |     Welcome To Pak Tigers Onine Shopping Store |*" << endl;
                         cout << "\t\t\t************* |________________________________________________|*" << endl;    
                         cout << "\t\t\t************* |     Please Enter Ammount You Want To spent     |*" << endl;
                         cout << "\t\t\t************* |________________________________________________|*" << endl;
-                        cout << "\t\t\t************* | RESPONSE : "; cin>>wallet;
-                        cin>>wallet;
+                        cout << "\t\t\t************* | AMOUNT : "; cin>>wallet;
+                        
                         ofstream setdata;
 	                 setdata.open("storedata.txt",ios::app);
+                    
                         cout << "\t\t\t*************  ________________________________________________*" << endl;     
                         cout << "\t\t\t************* |     Enter The Name  Of Buyer                   |*" << endl;
                         cout << "\t\t\t************* |________________________________________________|*" << endl;
@@ -272,6 +372,7 @@ void user :: Cart(){
 						system("cls");
                         while(wallet >=0){
                            if(wallet<=10){
+                              system("cls");
                                  cout << "\t\t\t*************  _____________________________________________________*" << endl;     
                                  cout << "\t\t\t************* |   you cant but anything You Dont Have Much Money :( |*" << endl;
                                  cout << "\t\t\t************* |_____________________________________________________|*" << endl;
@@ -279,6 +380,7 @@ void user :: Cart(){
                               break;
                            }else{
                            	if(counter==1){
+//                                 system("cls");
                                  cout << "\t\t\t*************  ____________________________________________________________*" << endl;     
                                  cout << "\t\t\t************* |   Your Remainging balance | $ "<<wallet<<"| In You wallet |*" << endl;
                                  cout << "\t\t\t************* |______________________________________________________|*" << endl;
@@ -292,7 +394,9 @@ void user :: Cart(){
                              
                            break;
 							   }else{
+
 							      product:
+//                           system("cls");
                            cout << "\t\t\t*************  ______________________________________________________*" << endl;     
                            cout << "\t\t\t************* |   Your Remainging balance "<<wallet<<" In You wallet |*" << endl;
                            cout << "\t\t\t************* |______________________________________________________|*" << endl;
@@ -315,8 +419,9 @@ void user :: Cart(){
                            cout << "\t\t\t************* |   Press 5 for check Out!                             |*" << endl;
                            cout << "\t\t\t************* |______________________________________________________|*" << endl;
                            cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
-                           cin>>option;
+                           
                            if(option=='1'){
+//                              system("cls");
                            cout << "\t\t\t**********  ______________________________________________________*" << endl;     
                            cout << "\t\t\t************* |   Press 1 for iphone 8s 100$   Available Quantity "<<iphoneQuantity8s    << "     |*" << endl;
                            cout << "\t\t\t************* |______________________________________________________|*" << endl;
@@ -325,7 +430,7 @@ void user :: Cart(){
                            cout << "\t\t\t************* |   Press 2 for iphone 12 1400$      Available Quantity "<<iphoneQuantity12<< "     |*" << endl;
                            cout << "\t\t\t************* |______________________________________________________|*" << endl;
                            cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
-                                cin>>option;
+                                
                                  switch (option)
                                  {
                                  case '1':
@@ -654,7 +759,7 @@ void user :: Cart(){
                                        cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
                                        cout << "\t\t\t************* |______________________________________________|*" << endl;
                                        cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
-                                       cin>>nthamount;
+
                                        finalres = 1000 * nthamount; 
                                        wallet = wallet - finalres;
                                        
@@ -674,20 +779,20 @@ void user :: Cart(){
 
                            }else if(option=='3')
                            {
-                                getBill();
+                           	  cout<<"YOU HAVE BOUGHT "<<item<<endl;
+                           	  cout<<" QUANTITY "<<nthamount<<endl;
+                           	  cout<<" PRICE "<<price;
+                           	  
                            }else if(option=='4')
                            {
                            	
                             add:
                            	double newwallet=0;
-                              cout << "\t\t\t*************  ______________________________________________*" << endl;
-                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
-                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
-                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
-                           	cout<<"Enter New Amount You want to add in your wallet "<<endl;
-                           	cin>>newwallet;
+                              cout << "\t\t\t*************  _________________________________________________________*" << endl;
+                              cout << "\t\t\t************* |Enter New Amount You want to add in your wallet          |*" << endl;
+                              cout << "\t\t\t************* |_________________________________________________________|*" << endl;
+                              cout << "\t\t\t************* | AMOUNT  : "; cin>>newwallet;
                            	wallet = newwallet + wallet ;
-                           	cout<<" Price OF wallet "<<endl; 
                           
                            }else if(option=='5')
 						   {
@@ -701,24 +806,41 @@ void user :: Cart(){
                      }
                      }
                      else if(option=='2'){
-
-                        cout<<"Welcome To Pak Tigers Online Plate Form "<<endl;
                         
+                        cout << "\t\t\t*************  __________________________________________________ *" << endl;
+                        cout << "\t\t\t************* |Welcome To Pak Tigers Online Plate Form           |*" << endl;
+                        cout << "\t\t\t************* |__________________________________________________|*" << endl;
                         int nthproduct,price;
                          ofstream setdata;
                          setdata.open("newstore,.txt",ios::app);
-                        cout<<"Please Enter Your Store Name "<<endl;
-                        cin>>store_name;
+                        cout << "\t\t\t*************  _________________________________________ *" << endl;
+                        cout << "\t\t\t************* |Please Enter Your Store Name             |*" << endl;
+                        cout << "\t\t\t************* |_________________________________________|*" << endl;
+                        cout << "\t\t\t************* | NAME :" ;cin>>store_name;
+                        
+                        
                         cout<<"Enter The ammount of product You want to added"<<endl;
                         cin>>nthproduct;
+                        cout << "\t\t\t*************  _______________________________________________ *" << endl;
+                        cout << "\t\t\t************* |Enter The ammount of product You want to added |*" << endl;
+                        cout << "\t\t\t************* |_______________________________________________|*" << endl;
+                        cout << "\t\t\t************* | PRICE :" ;cin>>nthproduct;
                         setdata<<store_name<<endl;
                         for(int i=0;i<nthproduct;i++){
-                           cout<<" Enter Your # "<<i<<" Product name"<<endl;
-                           cin>>productname;
-                           cout<<"Enter Your # " <<i<< " Product price";
-                           cin>>price;
-                           cout<<"Enter the Product Quantity "<<endl;
-                           cin>>ProductQuantity;
+                           
+                        cout << "\t\t\t*************  ____________________________________ *" << endl;
+                        cout << "\t\t\t************* |Enter Your # "<<i<<" Product name   |*" << endl;
+                        cout << "\t\t\t************* |____________________________________|*" << endl;
+                        cout << "\t\t\t************* | NAME :" ;cin>>productname;
+                        cout << "\t\t\t*************  _______________________________________ *" << endl;
+                        cout << "\t\t\t************* |Enter Your # " <<i<< " Product price   |*" << endl;
+                        cout << "\t\t\t************* |_______________________________________|*" << endl;
+                        cout << "\t\t\t************* | PRICE :" ;cin>>price;   
+                        cout << "\t\t\t*************  _______________________________________ *" << endl;
+                        cout << "\t\t\t************* |Enter the Product Quantity             |*" << endl;
+                        cout << "\t\t\t************* |_______________________________________|*" << endl;
+                        cout << "\t\t\t************* | QUANTITY :" ;cin>>ProductQuantity;   
+                           
                            setdata<<productname<<endl;
                            setdata<<ProductQuantity<<endl;
                            setdata<<price<<endl;
@@ -732,7 +854,10 @@ void user :: Cart(){
                      	getBill();
 					 }
                 else if(option=='4'){
-                   cout<< " New Storee "<<endl;
+                   cout << "\t\t\t*************  _________________________ *" << endl;
+                   cout << "\t\t\t************* |  NEW STORE              |*" << endl;
+                   cout << "\t\t\t************* |_________________________|*" << endl;
+                  //  cout<< " e "<<endl;
                    newsotre();
                 }
 }
@@ -1082,7 +1207,6 @@ void admin :: login(){
                                setdata<<upobj[i].useremail<<endl;
                                setdata<<upobj[i].password<<endl;
                                setdata<<upobj[i].status<<endl;
-                              //  cout<<"approved";
                                islogin=true;
                              
                                }
@@ -1239,7 +1363,7 @@ void admin :: view()
     cout << "\t\t\t*___________________TEAM MEMEBRS_______________________*" << endl;
     cout << "\t\t\t************* |      NAME        |     ROLL NO        |*" << endl;
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
-    cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-S20-024 }    |*" << endl;
+    cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-F17-174 }    |*" << endl;
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
     cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-001 }    |*" << endl;
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
@@ -1304,9 +1428,6 @@ void admin :: view()
             cout << "\t\t\t************* |    Press 2 For Registrtion              |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;
             cout << "\t\t\t************* | RESPONSE : ";cin>>obj.option; 
-        
-         
-         
         switch (obj.option)
         {
         case '1':
@@ -1319,25 +1440,20 @@ void admin :: view()
            break;
             cout << "\t\t\t*************  _________________________________________*" << endl;
             cout << "\t\t\t************* |    Invalid Entry :                      |*" << endl;
-            cout << "\t\t\t************* |_________________________________________|*" << endl;  
-         //   cout<<"Invalid Entry : "<<endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
         }
-         
-         
-         
     }else {
        
             cout << "\t\t\t*************  _________________________________________*" << endl;
             cout << "\t\t\t************* |    Invalid Entry :                      |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;  
     }
-    
 }
 
 int main() {
    admin obj;
-//   user obj1;
-//   obj1.getBill();
- 
+
    return 0;
 }
+
+
