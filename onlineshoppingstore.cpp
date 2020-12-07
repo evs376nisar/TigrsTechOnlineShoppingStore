@@ -236,66 +236,109 @@ void user :: userregistration(){
 void user :: Cart(){
 	               //   ofstream setdata;
 	               //   setdata.open("storedata.txt",ios::app);
-	                 
-                     cout<<"What Do You Want To Do "<<endl;
-                     cout<<"Press 1 for Shopping "<<endl;
-                     cout<<"Press 2 For Open Your Own Store "<<endl;
+	         cout << "\t\t\t*************  _________________________________________*" << endl;
+            cout << "\t\t\t************* |        What Do You Want To Do ?         |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 1 for Shopping                 |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 2 For Open Your Own Store      |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 3 For Edit You information     |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* |    Press 3 to check you account         |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* |    Press 4 to buy from other store      |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+            cout << "\t\t\t************* | RESPONSE : ";cin>>option;  
                      
-                     cout<<"Press 3 to check you account "<<endl;
-                     cout<<"Press 4 to buy from other store"<<endl;
-                     cin>>option;
                      if(option=='1'){
                      	
-                     	double cart=0;
-                        cout<<"Welcome To Pak Tigers Onine Shopping Store "<<endl;
-                        cout<<"Please Enter Ammount You Want To spent "<<endl;
+                           double cart=0;  
+                        cout << "\t\t\t*************  _________________________________________________*" << endl;     
+                        cout << "\t\t\t************* |     Welcome To Pak Tigers Onine Shopping Store |*" << endl;
+                        cout << "\t\t\t************* |________________________________________________|*" << endl;    
+                        cout << "\t\t\t************* |     Please Enter Ammount You Want To spent     |*" << endl;
+                        cout << "\t\t\t************* |________________________________________________|*" << endl;
+                        cout << "\t\t\t************* | RESPONSE : "; cin>>wallet;
                         cin>>wallet;
                         ofstream setdata;
 	                 setdata.open("storedata.txt",ios::app);
-	                 cout<<"Enter The name "<<endl;
+                        cout << "\t\t\t*************  ________________________________________________*" << endl;     
+                        cout << "\t\t\t************* |     Enter The Name  Of Buyer                   |*" << endl;
+                        cout << "\t\t\t************* |________________________________________________|*" << endl;
+                        cout << "\t\t\t************* | NAME  : ";  cin>>objdata[i].username;
                      cin>>objdata[i].username;
                      setdata<<objdata[i].username<<endl;
-                     // setdata<<date<<endl;
-                     // setdata.close();
 						system("cls");
                         while(wallet >=0){
                            if(wallet<=10){
-                              cout<<"you cant but anything You Dont Have Much Money"<<endl;
+                                 cout << "\t\t\t*************  _____________________________________________________*" << endl;     
+                                 cout << "\t\t\t************* |   you cant but anything You Dont Have Much Money :( |*" << endl;
+                                 cout << "\t\t\t************* |_____________________________________________________|*" << endl;
+                              
                               break;
                            }else{
                            	if(counter==1){
-						     cout<<"Your Remainging balance "<<wallet<<" In You wallet"<<endl;
-                             cout<<"Here is Your Inventory = "<<cart<<endl;
-                             cout<<"Press 1 to check your bill "<<endl;
+                                 cout << "\t\t\t*************  ____________________________________________________________*" << endl;     
+                                 cout << "\t\t\t************* |   Your Remainging balance | $ "<<wallet<<"| In You wallet |*" << endl;
+                                 cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                                 cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                                 cout << "\t\t\t************* |   You Have | "<<cart<<" |Product In Your Car         |*" << endl;
+                                 cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                                 cout << "\t\t\t*************  _______________________________________________________*" << endl;     
+                                 cout << "\t\t\t************* |   Press 1 to check your bill                         |*" << endl;
+                                 cout << "\t\t\t************* |______________________________________________________|*" << endl;
+						   
                              
                            break;
 							   }else{
 							      product:
-                           cout<<"You Have Added "<<wallet<<" In You wallet"<<endl;
-                           cout<<"Here is Your Inventory = "<<cart<<endl;
-                           cout<<"What Do you want to buy "<<endl;
-                           cout<<"Press 1 for Apple Proucts"<<endl;
-                           cout<<"Press 2 for to Buy samsung Products"<<endl;
-                           cout<<"Press 3 to check your bought products"<<endl;
-                           cout<<"Press 4 To add more money in your wallet "<<endl;
-                           cout<<"Press 5 for check Out! "<<endl;
+                           cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   Your Remainging balance "<<wallet<<" In You wallet |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   You Have "<<cart<<"Product In Your Cart            |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   What Do you want to buy                            |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   Press 1 for Apple Proucts                          |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* |   Press 2 for to Buy samsung Products                |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t*************  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   Press 3 to check your bought products              |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* |   Press 4 To add more money in your wallet           |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* |   Press 5 for check Out!                             |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                            cin>>option;
                            if(option=='1'){
-                               cout<<"Press 1 to buy Iphone "<<endl;
-                               cin>>option;
-                               if(option=='1'){
-                                cout<<"Press 1 for iphone 8s 100$   Available Quantity "<<iphoneQuantity8s<<endl;
-                                cout<<"Press 2 for iphone xMax 1000$  Available Quantity "<<iphoneQuantityxmax<<endl;
-                                cout<<"Press 3 for iphone 12 1400$  Available Quantity "<<iphoneQuantity12<<endl;
+                           cout << "\t\t\t**********  ______________________________________________________*" << endl;     
+                           cout << "\t\t\t************* |   Press 1 for iphone 8s 100$   Available Quantity "<<iphoneQuantity8s    << "     |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* |   Press 2 for iphone XMAX 100$   Available Quantity "<<iphoneQuantityxmax<< "     |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* |   Press 2 for iphone 12 1400$      Available Quantity "<<iphoneQuantity12<< "     |*" << endl;
+                           cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                           cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                 cin>>option;
                                  switch (option)
                                  {
                                  case '1':
                                     {
                                        if(wallet<=100){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
+                                       // cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -304,7 +347,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+                                    cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -314,19 +359,23 @@ void user :: Cart(){
                                          else 
                                        {
                                           if(iphoneQuantity8s==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                       cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                       cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                       cout << "\t\t\t************* |___________________________________|*" << endl;
+                                       cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
 
                                              iphone8s++;
                                        cart = iphone8s;
-                                       cout<<"Enter No of product you want"<<endl;
-                                       cin>>nthamount;
+                                       cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                        finalres = 100 * nthamount; 
                                        wallet = wallet - finalres;
                                        iphoneQuantity8s = iphoneQuantity8s-nthamount;
-                                        cout<<"PRoduct remaing "<<iphoneQuantity8s;
                                        item="iphone8s";
                                        price=finalres;
                                        setdata<<item<<endl;
@@ -341,9 +390,13 @@ void user :: Cart(){
                                     case '2':
                                     {
                                        if(wallet<=100){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -352,7 +405,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+										    	cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -360,15 +415,20 @@ void user :: Cart(){
 										
                                        }else {
                                           if(iphoneQuantityxmax==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                       cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                       cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                       cout << "\t\t\t************* |___________________________________|*" << endl;
+                                       cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
                                        iphoneXmax++;
                                        cart = iphoneXmax;
                                        
-                                       cout<<"Enter No of product you want"<<endl;
-                                       cin>>nthamount;
+                                       cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                         iphoneQuantityxmax = iphoneQuantityxmax-nthamount;
                                        finalres = 1000 * nthamount; 
                                        wallet = wallet - finalres;
@@ -383,9 +443,13 @@ void user :: Cart(){
                                  case'3':
                                  {  
                                     if(wallet<=100){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                         cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -394,7 +458,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+										    	cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -402,14 +468,19 @@ void user :: Cart(){
 										
                                        }else {
                                           if(iphoneQuantity12==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                             cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                             cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                             cout << "\t\t\t************* |___________________________________|*" << endl;
+                                             cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
                                        iphone12++;
                                        cart = iphone12;
-                                      cout<<"Enter No of product you want"<<endl;
-                                       cin>>nthamount;
+                                       cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                        finalres = 1400 * nthamount; 
                                         iphoneQuantity12 = iphoneQuantity12-nthamount;
                                        wallet = wallet - finalres;
@@ -424,23 +495,30 @@ void user :: Cart(){
                                  default:
                                     break;
                                  }
-                               }else {
-                               	cout<<"You have entered InVaLid KEy"<<endl;
-							   }
+                               
                            }else if(option=='2'){
-                                cout<<"Press 1 for samsung S8 400$   Available Quantity "<<samsungQuantitys8<<endl;
-                                cout<<"Press 2 for samsung S9 900$  Available Quantity "<<samsungQuantitys9<<endl;
-                                cout<<"Press 3 for Samsung S10 1000$  Available Quantity "<<samsungQuantitys10<<endl;
-                                cin>>option;
+                              cout << "\t\t\t**********  ______________________________________________________*" << endl;     
+                              cout << "\t\t\t************* |   Press 1 for samsung S8 400$   Available Quantity "<<samsungQuantitys8  << "     |*" << endl;
+                              cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                              cout << "\t\t\t************* |   Press 2 for samsung S9 900$  Available Quantity "<<samsungQuantitys9<< "        |*" << endl;
+                              cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                              cout << "\t\t\t************* |   Press 3 for Samsung S10 1000$  Available Quantity "<<samsungQuantitys10<< "     |*" << endl;
+                              cout << "\t\t\t************* |______________________________________________________|*" << endl;
+                              cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
+                             
                                 
                                  switch (option)
                                  {
                                  case '1':
                                     {
                                         if(wallet<=400){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                        cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -449,7 +527,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+										    	cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -457,14 +537,19 @@ void user :: Cart(){
 										
                                        }else {
                                           if(samsungQuantitys8==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                             cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                             cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                             cout << "\t\t\t************* |___________________________________|*" << endl;
+                                             cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
                                        s8++;
                                        cart = s8;
-                                       cout<<"Enter No of product you want"<<endl;
-                                       cin>>nthamount;
+                                       cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                        finalres = 400 * nthamount; 
                                        wallet = wallet - finalres;
                                          samsungQuantitys8 = samsungQuantitys8-nthamount;
@@ -479,9 +564,13 @@ void user :: Cart(){
                                  case '2':
                                     {
                                        if(wallet<=400){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                         cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -490,7 +579,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+										    	cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -498,14 +589,19 @@ void user :: Cart(){
 										
                                        }else {
                                           if(samsungQuantitys9==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                             cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                             cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                             cout << "\t\t\t************* |___________________________________|*" << endl;
+                                             cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
                                        s9++;
                                        cart = s9;
-                                       cout<<"Enter No of product you want"<<endl;
-                                       cin>>nthamount;
+                                        cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                        finalres = 900 * nthamount; 
                                        wallet = wallet - finalres;
                                         samsungQuantitys9 = samsungQuantitys9-nthamount;
@@ -520,9 +616,13 @@ void user :: Cart(){
                                     case '3':
                                     {
                                        if(wallet<=400){
-                                         cout<<"Sorry YOU cant not but this item You dont enough money"<<endl;
-                                         cout<<"Press 1 for add more money or press 2 for check out"<<endl;
-                                         cin>>option;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Sorry YOU cant not but this item You dont enough money |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t*************  ________________________________________________________ *" << endl;
+                                       cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
+                                       cout << "\t\t\t************* |________________________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
                                          switch(option)
 										 {
 										   case '1':
@@ -531,7 +631,9 @@ void user :: Cart(){
 										    break;
 											} 
 										    case '2':{
-										    	cout<<"Bye Bye"<<endl;
+										    	cout << "\t\t\t*************  ___________________ *" << endl;
+                                    cout << "\t\t\t************* | Bye Bye   :)      |*" << endl;
+                                    cout << "\t\t\t************* |___________________|*" << endl;
 												exit(1);
 											}
 										  
@@ -539,13 +641,19 @@ void user :: Cart(){
 										
                                        }else {
                                           if(samsungQuantitys10==0){
-                                             cout<<"Product is out Of stock "<<endl;
+                                             cout << "\t\t\t*************  ___________________________________ *" << endl;
+                                             cout << "\t\t\t************* | This  Product is out Of stock     |*" << endl;
+                                             cout << "\t\t\t************* |___________________________________|*" << endl;
+                                             cout<<"\t\t\t\t\t"<<endl;
                                             goto product;
                                           }
                                           else{
                                        s10++;
                                        cart = s10;
-                                       cout<<"Enter No of product you want"<<endl;
+                                       cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                                        cin>>nthamount;
                                        finalres = 1000 * nthamount; 
                                        wallet = wallet - finalres;
@@ -572,6 +680,10 @@ void user :: Cart(){
                            	
                             add:
                            	double newwallet=0;
+                              cout << "\t\t\t*************  ______________________________________________*" << endl;
+                                       cout << "\t\t\t************* |   Enter Number of product you want           |*" << endl;
+                                       cout << "\t\t\t************* |______________________________________________|*" << endl;
+                                       cout << "\t\t\t************* | RESPONSE  : "; cin>>nthamount;
                            	cout<<"Enter New Amount You want to add in your wallet "<<endl;
                            	cin>>newwallet;
                            	wallet = newwallet + wallet ;
@@ -1129,7 +1241,7 @@ void admin :: view()
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
     cout << "\t\t\t************* |HIBA LIAQAT       |{ BSEM-S20-024 }    |*" << endl;
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
-    cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-024 }    |*" << endl;
+    cout << "\t\t\t************* |NABILA MUAZ       |{ BSEM-S20-001 }    |*" << endl;
     cout << "\t\t\t************* |__________________|____________________|*" << endl;
     cout << "\t\t\t************* |AMMAD ANWAR       |{ BSEM-S20-024 }    |*" << endl;  
 	 cout << "\t\t\t************* |__________________|____________________|*" << endl;
