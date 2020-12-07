@@ -48,6 +48,7 @@ class data {
     int price;
     string item;
     string date;
+
     int year,month,day;
     int nthamount;
     int ProductQuantity=0;
@@ -133,14 +134,23 @@ void user :: userlogin(){
        		  getdata>>objdata[i].useremail;
        		  getdata>>objdata[i].userpassword;
        		  getdata>>objdata[i].status;
+               
+               
 		   }
          login:
-         
-		    cout<<"Enter Email For Login : "<<endl;
-		    cin>>loginobj.useremail;
-		    cout<<"Enter Password For Login : "<<endl;
-		    cin>>loginobj.userpassword;
-	        bool isapproved= false;
+           cout << "\t\t\t*________________________________________________________*" << endl;
+    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+    cout << "\t\t\t************* |                                         |*" << endl;
+    cout << "\t\t\t************* |        WELCOME TO LOGIN PORTAL          |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         ENTER EMAIL FOR LOGIN           |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | EMAIL : ";cin>>loginobj.useremail;   
+	 cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* |         ENTER PASSWORD FOR LOGIN        |*" << endl;
+    cout << "\t\t\t************* |_________________________________________|*" << endl;
+    cout << "\t\t\t************* | PASSWORD : ";cin>>loginobj.userpassword;  
+		     bool isapproved= false;
 	        bool islogin=false;
 	        bool isblock=false;
 		for(int i=0;i<100;i++)
@@ -150,8 +160,11 @@ void user :: userlogin(){
                   if(objdata[i].status=="approved" || objdata[i].status=="blocked"){
        	     	     if(objdata[i].status != "blocked")
                      {
-                     	
-                     cout<<"Welcome : "<<objdata[i].username<<endl;
+                     	cout << "\t\t\t*________________________________________________________*" << endl;
+                     cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+                     cout << "\t\t\t************* |                                         |*" << endl;
+                     cout << "\t\t\t************* | WELCOME "<<objdata[i].username<<endl<<" |*" << endl;
+                     cout << "\t\t\t************* |_________________________________________|*" << endl;
                      islogin=true;
                      isblock=true;
                      isapproved=true;
@@ -178,17 +191,18 @@ void user :: userlogin(){
 		   }   
          
          
-         getdata.close();
+         
          if(islogin==false){
          cout<<"InValid Entry "<<endl;
             goto login;
           
          }else if( isblock==false){
-               cout<<"You are bocked By the Admin  :("<<endl;
+               cout<<"You are blocked By the Admin  :("<<endl;
          }
          else if(isapproved==false){
             cout<<"NOt Approved By The Amdin";
          }
+         getdata.close();
 }
 void user :: userregistration(){ 
 
@@ -835,8 +849,12 @@ void admin :: login(){
                            
                     }
                     string Accountname;
-                    cout<<"Enter account holder name you want to approved "<<endl;
-                    cin>>Accountname;
+                    cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                    cout << "\t\t\t************* |     Enter account holder name you want to approved         |*" << endl;
+                    cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                    cout << "\t\t\t************* | PASSWORD : ";cin>>Accountname;;  
+                  //   cout<<""<<endl;
+                    
                     for(int i=0;i<100;i++){
                      if(Accountname==upobj[i].name && upobj[i].status == "pendding"){
                         upobj[i].status = "approved";
@@ -851,7 +869,12 @@ void admin :: login(){
                                setdata<<upobj[i].useremail<<endl;
                                setdata<<upobj[i].password<<endl;
                                setdata<<upobj[i].status<<endl;
-                               cout<<"Account Has been  approved"<<endl;
+                               system("cls");
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     Account Has been  approved             :)              |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                  
+                              //  cout<<""<<endl;
                                islogin=true;
                                break;
                              
@@ -875,6 +898,9 @@ void admin :: login(){
                            remove("userregistration.txt");
                            rename("temp.txt" , "userregistration.txt");
                            if(islogin==false){
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     No Pendding Account Found              :)              |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
                        cout<<"No Pendding Account Found"<<endl;
                         ifstream getdata;
                       getdata.open("userregistration.txt");
@@ -923,8 +949,12 @@ void admin :: login(){
                            
                     }
                     string Accountname;
-                    cout<<"Enter account holder name you want to approved "<<endl;
-                    cin>>Accountname;
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     Enter account holder name you want to BLOCKED  !       |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                                 cout << "\t\t\t************* |";  cin>>Accountname;
+                  //   cout<<"Enter account holder name you want to approved "<<endl;
+                  //   cin>>Accountname;
                     for(int i=0;i<100;i++){
                      if(Accountname==upobj[i].name ){
                         upobj[i].status = "blocked";
@@ -955,11 +985,13 @@ void admin :: login(){
                      
                     }
                     if(islogin==false){
-                     //   cout<<"No Pendding Account Found"<<endl;
                     }else if(islogin==true){
-                       cout<<"Account Has been Blocked"<<endl;
+                       
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     Account Has been BLOCKED                       !       |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
                     }
-                     
+
                                getdata.close();
                            remove("userregistration.txt");
                            rename("temp.txt" , "userregistration.txt");
@@ -980,8 +1012,13 @@ void admin :: login(){
                            
                     }
                     string Accountname;
-                    cout<<"Enter account holder name you want to approved "<<endl;
-                    cin>>Accountname;
+                    
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     Enter account holder name you want to UNBLOCKED :      |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                                 cout << "\t\t\t************* | RESPONSE : ";cin>>Accountname;
+                  //   cout<<"Enter account holder name you want to UNBLOCKED "<<endl;
+                    
                     for(int i=0;i<100;i++){
                      if(Accountname==upobj[i].name && upobj[i].status == "blocked"){
                         upobj[i].status = "approved";
@@ -996,7 +1033,10 @@ void admin :: login(){
                                setdata<<upobj[i].useremail<<endl;
                                setdata<<upobj[i].password<<endl;
                                setdata<<upobj[i].status<<endl;
-                               cout<<"Account Has been  approved"<<endl;
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     Account Has UnBlocked                           :      |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                              //  cout<<"?"<<endl;
                                islogin=true;
                                break;
                              
@@ -1020,7 +1060,10 @@ void admin :: login(){
                            remove("userregistration.txt");
                            rename("temp.txt" , "userregistration.txt");
                            if(islogin==false){
-                       cout<<"No Blocked Account Found"<<endl;
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |     No Blocked Account Found                        :      |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+                     //   cout<<"No Blocked Account Found"<<endl;
                         ifstream getdata;
                       getdata.open("userregistration.txt");
                       ofstream setdata;
@@ -1066,7 +1109,11 @@ void admin :: login(){
          
     }
     if(islogin==false){
-       cout<<"!404 You Are Not  In Our Database"<<endl;
+       
+                                 cout << "\t\t\t*************  ____________________________________________________________ *" << endl;
+                                 cout << "\t\t\t************* |      404  ! You Are Not  In Our Database   !Try Again :   |*" << endl;
+                                 cout << "\t\t\t************* |____________________________________________________________|*" << endl;
+      //  cout<<""<<endl;
     }
 
         
@@ -1136,14 +1183,18 @@ void admin :: view()
     }else if(obj.res==2)
     {
        system("cls");
-         cout << "\t\t\t*************************************************************************" << endl;
-         cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-         cout<<"\t\t\t*\tWelCOME  TO USER PORTAL"<<endl;
-         cout<<"\t\t\t*\tPress 1 For Login"<<endl;
-         cout<<"\t\t\t*\tPress 2 For Registrtion"<<endl;
+       cout << "\t\t\t************* |         WELCOME WelCOME  TO USER PORTAL             |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |        What Do You Want To Do ?         |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 1 For Login                    |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* |    Press 2 For Registrtion              |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;
+            cout << "\t\t\t************* | RESPONSE : ";cin>>obj.option; 
+        
          
          
-         cin>>obj.option;
         switch (obj.option)
         {
         case '1':
@@ -1154,16 +1205,20 @@ void admin :: view()
            break;
         default:
            break;
-           cout<<"Invalid Entry : "<<endl;
+            cout << "\t\t\t*************  _________________________________________*" << endl;
+            cout << "\t\t\t************* |    Invalid Entry :                      |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
+         //   cout<<"Invalid Entry : "<<endl;
         }
          
          
          
     }else {
-       cout<<"\t\t\t*\tINvalid entity";
+       
+            cout << "\t\t\t*************  _________________________________________*" << endl;
+            cout << "\t\t\t************* |    Invalid Entry :                      |*" << endl;
+            cout << "\t\t\t************* |_________________________________________|*" << endl;  
     }
-    cout << "\t\t\t*\t\t\t\t\t\t\t\t\t*" << endl;
-    cout << "\t\t\t*************************************************************************" << endl;
     
 }
 
