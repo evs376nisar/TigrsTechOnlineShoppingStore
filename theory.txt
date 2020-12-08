@@ -1,0 +1,68 @@
+    OOP =  {"incapsulation","inheritance","polymorphisam ","abstraction"};
+    [ incapsulation = { 
+
+          class abc {
+                      private:
+		      int number;
+		      public:
+		      string name			
+		      protedted:
+		      string email;
+public:
+  abc(){};
+  void  setdata(){};
+  void  getdata(){};
+  ~abc(){};
+}
+
+  int main (){  abc obj(instance of class);  obj.setdata()        return 0;}
+
+]
+[        inheritance  = {   
+
+     class parent{
+                      private:
+		      int number;
+		      public:
+		      string name			
+		      protedted:
+		      string email;
+public:
+  abc(){};
+  void  setdata(){};
+  void  getdata(){};
+  ~abc(){};
+} class child : public parent{
+                      private:
+		      int number;
+		      public:
+		      string name			
+		      protedted:
+		      string email;
+public:
+  abc(){};
+  void  setdata(){};
+  void  getdata(){};
+  ~abc(){};
+}
+
+
+
+
+
+                 }
+]
+
+   [polymorphisam =   {
+
+         early bindin 
+	 late binding
+	static
+	dynamic
+	steak
+	heap
+
+
+
+
+}]

@@ -65,10 +65,7 @@ class data {
 class user : public data{
    logindata loginobj,objdata[1000];
    data obj1data[1000],obj1;
-
-   
-   
-    public: 
+   public: 
          void Cart();
        void userlogin();
       
@@ -86,7 +83,9 @@ void user :: newsotre(){
          getdata>>obj1data[i].productname;
          getdata>>obj1data[i].ProductQuantity;
          getdata>>obj1data[i].price;
+         
          if(obj1data[i].productname.empty()){
+         	
 		 }else{
 		 cout<<"\t\t\t***** |________________|*"<<endl;
 		 cout<<"\t\t\t***** | "<<i<<" - "<<obj1data[i].productname<<"         ";
@@ -119,17 +118,19 @@ void user :: newsotre(){
 	  	}else{
 		  }	
 	  cout<<"How Many Product Do you want to buy";
-	  cin>>P_buy;
+	  cin>>P_buy;  // 2
 	  cout<<"Enter the PRoduct Index to Buy"<<endl;
-	  cin>>respnose;
+	  cin>>respnose; // # 1  apple   # 2 samsung
 	  cout<<"WAllet "<<wallet<<endl;
+	  // wallet  = 10000
 	  
 	  for(int i=1;i<10;i++){
         
 	  ProductQuantity = obj1data[i].ProductQuantity;
-	  
+	   
+ 	  
 	    if(respnose==i){
-	    	cart = cart + P_buy; 
+	    	cart = cart + P_buy;
 	  		cout<<"Product Quantity "<<ProductQuantity<<endl;
 	  		if(ProductQuantity==0){
 	  			cout<<"PRODUCT IS OUT OF STOCK "<<endl;
@@ -139,12 +140,11 @@ void user :: newsotre(){
 			cout<<"You Have Purchased "<<obj1data[i].productname<<endl;
             
 	  		obj1data[i].ProductQuantity =obj1data[i].ProductQuantity - P_buy ; 
-	  		 
 	  		wallet = wallet - (obj1data[i].price * P_buy);
 	  		extract   =obj1data[i].price * P_buy;
 	  		cout<<"WAllet "<<wallet<<endl;
 	  	    cout<<"You have "<<cart<<" IN inventory "<<endl;
-	  		cout<<"Do YOu want to but more"<<endl;
+	  		cout<<"Do YOu want to buy more Press 1"<<endl;
 	  		cout<<"OR PRESS 5 To Check Out !"<<endl;
 	  		cin>>res;
 	  		if(res==1){
@@ -201,23 +201,22 @@ void user :: userlogin(){
        		  getdata>>objdata[i].useremail;
        		  getdata>>objdata[i].userpassword;
        		  getdata>>objdata[i].status;
-               
-               
-		   }
+       		  //                  pendding    blocked  approved 
+           }
          login:
-           cout << "\t\t\t*________________________________________________________*" << endl;
-    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
-    cout << "\t\t\t************* |                                         |*" << endl;
-    cout << "\t\t\t************* |        WELCOME TO LOGIN PORTAL          |*" << endl;
-    cout << "\t\t\t************* |_________________________________________|*" << endl;
-    cout << "\t\t\t************* |         ENTER EMAIL FOR LOGIN           |*" << endl;
-    cout << "\t\t\t************* |_________________________________________|*" << endl;
-    cout << "\t\t\t************* | EMAIL : ";cin>>loginobj.useremail;   
-	 cout << "\t\t\t************* |_________________________________________|*" << endl;
-    cout << "\t\t\t************* |         ENTER PASSWORD FOR LOGIN        |*" << endl;
-    cout << "\t\t\t************* |_________________________________________|*" << endl;
-    cout << "\t\t\t************* | PASSWORD : ";cin>>loginobj.userpassword;  
-		     bool isapproved= false;
+        cout << "\t\t\t*________________________________________________________*" << endl;
+	    cout << "\t\t\t*__________________WELCOME TIGERS TECH___________________*" << endl;
+	    cout << "\t\t\t************* |                                         |*" << endl;
+	    cout << "\t\t\t************* |        WELCOME TO LOGIN PORTAL          |*" << endl;
+	    cout << "\t\t\t************* |_________________________________________|*" << endl;
+	    cout << "\t\t\t************* |         ENTER EMAIL FOR LOGIN           |*" << endl;
+	    cout << "\t\t\t************* |_________________________________________|*" << endl;
+        cout << "\t\t\t************* | EMAIL : ";cin>>loginobj.useremail;   
+	    cout << "\t\t\t************* |_________________________________________|*" << endl;
+	    cout << "\t\t\t************* |         ENTER PASSWORD FOR LOGIN        |*" << endl;
+	    cout << "\t\t\t************* |_________________________________________|*" << endl;
+	    cout << "\t\t\t************* | PASSWORD : ";cin>>loginobj.userpassword;  
+		    bool isapproved= false;
 	        bool islogin=false;
 	        bool isblock=false;
 		for(int i=0;i<100;i++)
@@ -343,9 +342,9 @@ void user :: Cart(){
             cout << "\t\t\t************* |_________________________________________|*" << endl;
             cout << "\t\t\t************* |    Press 3 For Edit You information     |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;  
-            cout << "\t\t\t************* |    Press 3 to check you account         |*" << endl;
+            cout << "\t\t\t************* |    Press 4 to check you account         |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;  
-            cout << "\t\t\t************* |    Press 4 to buy from other store      |*" << endl;
+            cout << "\t\t\t************* |    Press 5 to buy from other store      |*" << endl;
             cout << "\t\t\t************* |_________________________________________|*" << endl;  
             cout << "\t\t\t************* | RESPONSE : ";cin>>option;  
                      
@@ -367,20 +366,18 @@ void user :: Cart(){
                         cout << "\t\t\t************* |     Enter The Name  Of Buyer                   |*" << endl;
                         cout << "\t\t\t************* |________________________________________________|*" << endl;
                         cout << "\t\t\t************* | NAME  : ";  cin>>objdata[i].username;
-                     cin>>objdata[i].username;
                      setdata<<objdata[i].username<<endl;
 						system("cls");
                         while(wallet >=0){
                            if(wallet<=10){
                               system("cls");
                                  cout << "\t\t\t*************  _____________________________________________________*" << endl;     
-                                 cout << "\t\t\t************* |   you cant but anything You Dont Have Much Money :( |*" << endl;
+                                 cout << "\t\t\t************* |   you cant buy anything You Dont Have Much Money :( |*" << endl;
                                  cout << "\t\t\t************* |_____________________________________________________|*" << endl;
                               
                               break;
                            }else{
                            	if(counter==1){
-//                                 system("cls");
                                  cout << "\t\t\t*************  ____________________________________________________________*" << endl;     
                                  cout << "\t\t\t************* |   Your Remainging balance | $ "<<wallet<<"| In You wallet |*" << endl;
                                  cout << "\t\t\t************* |______________________________________________________|*" << endl;
@@ -396,7 +393,6 @@ void user :: Cart(){
 							   }else{
 
 							      product:
-//                           system("cls");
                            cout << "\t\t\t*************  ______________________________________________________*" << endl;     
                            cout << "\t\t\t************* |   Your Remainging balance "<<wallet<<" In You wallet |*" << endl;
                            cout << "\t\t\t************* |______________________________________________________|*" << endl;
@@ -443,7 +439,7 @@ void user :: Cart(){
                                        cout << "\t\t\t************* | Press 1 for add more money or press 2 for check out    |*" << endl;
                                        cout << "\t\t\t************* |________________________________________________________|*" << endl;
                                        cout << "\t\t\t************* | RESPONSE  : "; cin>>option;
-                                       // cin>>option;
+                                       
                                          switch(option)
 										 {
 										   case '1':
@@ -793,11 +789,12 @@ void user :: Cart(){
                               cout << "\t\t\t************* |_________________________________________________________|*" << endl;
                               cout << "\t\t\t************* | AMOUNT  : "; cin>>newwallet;
                            	wallet = newwallet + wallet ;
-                          
+                         
                            }else if(option=='5')
 						   {
+						   	
 						   	  
-						   	  counter++;
+						   	  exit(1);
 						   	  
 						   }
                         }
@@ -870,23 +867,23 @@ class admin : public parent
     public:
  
        admin (){
-//          system("color 05");
-//	cout<<"\t \t PROGRAM\a\a\a\a\a\a IS\a\a\a\a\a LOADING\a\a\a\a\a\n";
-//	Sleep(1000);
-//	for(int j=0;j<6;j++)
-//	{
-//		system("color 03");
-//		cout<<"|-|-";
-//		cout<<"\a\a\a\a\a\a\a";
-//		Sleep(100);
-//		system ("color 09");
-//		Sleep(100);
-//		cout<<"|-|-";
-//		cout<<"\a\a\a\a\a\a\a";
-//		system("color 04");
-//		Sleep(100);
-//	}
-//	system("cls");
+          system("color 05");
+	cout<<"\t \t PROGRAM\a\a\a\a\a\a IS\a\a\a\a\a LOADING\a\a\a\a\a\n";
+	Sleep(1000);
+	for(int j=0;j<6;j++)
+	{
+		system("color 03");
+		cout<<"|-|-";
+		cout<<"\a\a\a\a\a\a\a";
+		Sleep(100);
+		system ("color 09");
+		Sleep(100);
+		cout<<"|-|-";
+		cout<<"\a\a\a\a\a\a\a";
+		system("color 04");
+		Sleep(100);
+	}
+	system("cls");
           view();
        } 
         void view();
@@ -1116,21 +1113,13 @@ void admin :: login(){
                                break;
                              
                                }
-                              
-                               
-                           
-                           
                                
                      }else{
-                       
                         islogin=false;
-                        
-                        
                      }
                      
                     }
-                    
-                               setdata.close();
+                              setdata.close();
                                getdata.close();
                            remove("userregistration.txt");
                            rename("temp.txt" , "userregistration.txt");

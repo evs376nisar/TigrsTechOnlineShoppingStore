@@ -1,1 +1,9 @@
-cd
+apple
+3
+100
+samsung
+1
+200
+redmi
+2
+300
